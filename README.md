@@ -2,4 +2,4 @@ PYTHON
 
 
 
-PASSWORD GENERATOR
+task 3 internship code
