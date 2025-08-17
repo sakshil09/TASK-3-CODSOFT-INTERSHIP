@@ -1,0 +1,41 @@
+import random
+import string
+
+class PasswordGenerator:
+    def __init__(self):
+        self.lowercase = string.ascii_lowercase
+        self.uppercase = string.ascii_uppercase
+        self.digits = string.digits
+        self.symbols = string.punctuation
+
+    def generate(self, length):
+        if length < 4:
+            print("Password length should be at least 4 for better security.")
+            return None
+        
+        
+        password = [
+            random.choice(self.lowercase),
+            random.choice(self.uppercase),
+            random.choice(self.digits),
+            random.choice(self.symbols)
+        ]
+        
+  
+        all_characters = self.lowercase + self.uppercase + self.digits + self.symbols
+        password += random.choices(all_characters, k=length-4)
+        
+        
+        random.shuffle(password)
+        
+        return ''.join(password)
+
+
+if __name__ == "__main__":
+    length = int(input("Enter the desired password length: "))
+    
+    generator = PasswordGenerator()
+    password = generator.generate(length)
+    
+    if password:
+        print("Generated Password:", password)
